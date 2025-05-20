@@ -1,0 +1,207 @@
+:root {
+    --primary-color: #6a11cb; /* Mor */
+    --secondary-color: #2575fc; /* Mavi */
+    --accent-color: #ff6f91; /* Pembe/Canlı */
+    --text-color: #f0f0f0;
+    --bg-color-light: rgba(255, 255, 255, 0.1);
+    --bg-color-dark: #121212; /* Çok koyu arkaplan */
+    --card-hover-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Roboto Slab', serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    color: var(--text-color);
+    background-color: var(--bg-color-dark); /* Koyu arka plan */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    overflow-x: hidden; /* Yatay kaydırmayı engelle */
+    position: relative; /* Animasyonlu arka planlar için */
+}
+
+/* Animasyonlu Arka Planlar */
+.stars, .twinkling, .clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: -1; /* İçeriğin arkasında */
+}
+
+.stars {
+    background: #000 url(https://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+}
+
+.twinkling {
+    background: transparent url(https://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
+    animation: move-twink-back 200s linear infinite;
+}
+
+.clouds {
+    background: transparent url(https://www.script-tutorials.com/demos/360/images/clouds3.png) repeat top center; /* clouds.png veya clouds3.png deneyin */
+    animation: move-clouds-back 200s linear infinite;
+    opacity: 0.3; /* Bulutları biraz daha soluk yapalım */
+}
+
+@keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+
+@keyframes move-clouds-back {
+    from {background-position:0 0;}
+    to {background-position:10000px 0;}
+}
+
+
+.container {
+    background: var(--bg-color-light);
+    backdrop-filter: blur(10px); /* Glassmorphism etkisi */
+    -webkit-backdrop-filter: blur(10px); /* Safari için */
+    border-radius: 20px;
+    padding: 30px 40px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    text-align: center;
+    max-width: 900px;
+    width: 90%;
+    z-index: 1; /* Arka plan animasyonlarının üzerinde */
+}
+
+header {
+    margin-bottom: 30px;
+}
+
+.main-title {
+    font-family: var(--font-secondary);
+    font-size: 2.8em;
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, var(--accent-color), var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shine 5s infinite linear;
+}
+
+@keyframes shine {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.subtitle {
+    font-size: 1.1em;
+    color: #ccc; /* Ana metinden biraz daha soluk */
+}
+
+.navigation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.nav-button {
+    display: flex;
+    flex-direction: column; /* İkon ve metni alt alta */
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 20px;
+    border-radius: 12px;
+    font-size: 1.1em;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    opacity: 0; /* JS ile animasyon için başlangıç */
+    transform: translateY(20px); /* JS ile animasyon için başlangıç */
+    min-height: 120px; /* Butonların aynı yükseklikte olmasını sağlar */
+}
+
+.nav-button i {
+    font-size: 2em; /* İkon boyutu */
+    margin-bottom: 10px; /* İkon ve metin arası boşluk */
+    color: var(--accent-color); /* İkon rengi */
+    transition: transform 0.3s ease;
+}
+
+.nav-button:hover,
+.nav-button:focus {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: var(--card-hover-shadow);
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color)); /* Hover'da gradient yönü değişebilir */
+}
+
+.nav-button:hover i {
+    transform: scale(1.2) rotate(10deg); /* İkonu hafifçe büyüt ve döndür */
+}
+
+/* JS ile eklenecek animasyon sınıfı */
+.nav-button.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+footer {
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: #aaa;
+}
+
+footer a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+/* Responsive düzenlemeler */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.2em;
+    }
+    .subtitle {
+        font-size: 1em;
+    }
+    .navigation-grid {
+        grid-template-columns: 1fr; /* Tek sütun */
+        gap: 20px;
+    }
+    .nav-button {
+        font-size: 1em;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+    }
+    .main-title {
+        font-size: 1.8em;
+    }
+    .subtitle {
+        font-size: 0.9em;
+    }
+}
