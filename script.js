@@ -39,11 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const button = document.createElement('a');
         button.classList.add('nav-button');
         
-        // GitHub Pages'da göreceli yol kullanıyoruz.
-        // Eğer bu ana index.html, /Cember/ altında ise, linkler ./FolderName/index.html şeklinde olmalı.
-        // Eğer /Cember/juuzooitem.github.io/ ise, /Cember/FolderName/index.html şeklinde olmalı.
-        // Şu anki yapıya göre ./FolderName/index.html doğru olacaktır.
-        button.href = `./${encodeURIComponent(site.folder)}/index.html`;
+        // DÜZELTİLMİŞ URL OLUŞTURMA:
+        // Ana index.html dosyası /Cember/ dizinindeyse ve hedef
+        // /Cember/çember/Bölüm X/index.html ise, göreceli yol aşağıdaki gibi olmalıdır.
+        button.href = `./çember/${encodeURIComponent(site.folder)}/index.html`;
         
         const iconElement = document.createElement('i');
         iconElement.className = site.icon; // Font Awesome class'larını ata
