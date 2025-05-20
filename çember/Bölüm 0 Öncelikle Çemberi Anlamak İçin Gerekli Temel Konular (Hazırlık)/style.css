@@ -1,0 +1,75 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #1a73e8; /* Google mavisi gibi bir renk */
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.konu-item {
+    background: #fff;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    overflow: hidden; /* İçerik taşmasını engellemek için */
+}
+
+.konu-baslik {
+    background: #e9ecef; /* Açık gri bir başlık arkaplanı */
+    color: #333;
+    padding: 15px 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd; /* Açıklama açıldığında daha iyi görünmesi için */
+}
+
+.konu-baslik:hover {
+    background: #dcdcdc;
+}
+
+.konu-baslik .isaret {
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
+}
+
+.konu-icerik {
+    padding: 0 20px; /* Başlangıçta padding var ama height 0 olacak */
+    max-height: 0; /* Başlangıçta kapalı */
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, padding 0.5s ease-out; /* Animasyon */
+    background-color: #fdfdfd; /* İçerik için çok hafif farklı bir arkaplan */
+}
+
+.konu-icerik p {
+    margin: 15px 0; /* Paragraflar arası boşluk */
+}
+
+/* Aktif (açık) durum için stiller */
+.konu-item.aktif .konu-baslik .isaret {
+    transform: rotate(90deg); /* İşareti döndür */
+}
+
+.konu-item.aktif .konu-icerik {
+    /* max-height'ı yeterince büyük bir değere ayarlayın ki içerik sığsın */
+    max-height: 500px; /* Örnek değer, içeriğinize göre ayarlayın */
+    padding: 15px 20px; /* Açıkken padding'i geri getir */
+}

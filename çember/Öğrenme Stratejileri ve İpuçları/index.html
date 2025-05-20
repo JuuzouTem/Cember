@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çember Öğrenme Stratejileri</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Çember: Öğrenme Stratejileri ve İpuçları</h1>
+        <p>Bu interaktif rehberle çember konusundaki öğrenme stratejilerini keşfedin!</p>
+    </header>
+
+    <main>
+        <section class="tip-section" id="tip1">
+            <div class="tip-header">
+                <h2>1. Çizin!</h2>
+                <button class="toggle-btn" data-target="tip1-interactive-wrapper">GÖSTER</button>
+            </div>
+            <p class="tip-main-description">Geometri sorularının çözümünde en önemli adım şekli doğru çizmektir. Verilenleri şekil üzerinde gösterin. Bilinmeyeni veya isteneni belirleyin.</p>
+            <div class="tip-content-wrapper" id="tip1-interactive-wrapper">
+                <div class="interactive-area">
+                    <p><strong>Örnek:</strong> "Merkezi O olan bir çemberde, AB kirişi merkeze 5 cm uzaklıktadır. Kirişin uzunluğu 24 cm ise yarıçap nedir?"</p>
+                    <button id="cizimGosterBtn">Çizimi Görselleştir</button>
+                    <div id="cizimAlani" class="hidden">
+                        <img src="https://i.imgur.com/sKqf5uT.png" alt="Çemberde kiriş ve yarıçap çizimi">
+                        <p><em>Çizimde: Merkezden kirişe dikme (5cm), kirişin yarısı (12cm) ve yarıçap (r) bir dik üçgen oluşturur. Pisagor'dan r bulunur.</em></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tip-section" id="tip2">
+            <div class="tip-header">
+                <h2>2. Yardımcı Çizgiler</h2>
+                <button class="toggle-btn" data-target="tip2-interactive-wrapper">GÖSTER</button>
+            </div>
+            <p class="tip-main-description">Genellikle yarıçaplar, merkezden kirişe/teğete dikmeler, paralel doğrular, açıortaylar gibi yardımcı çizgiler çizmek çözümü kolaylaştırır.</p>
+            <div class="tip-content-wrapper" id="tip2-interactive-wrapper">
+                <div class="interactive-area">
+                    <p><strong>Senaryo:</strong> Bir çembere dışındaki bir P noktasından PA ve PB teğetleri çiziliyor. AOB merkez açısını bulunuz.</p>
+                    <button id="yardimciCizgiBtn">Yardımcı Çizgiyi ve Çözümü Gör</button>
+                    <div id="yardimciCizgiAlani" class="hidden">
+                        <img src="https://i.imgur.com/0xL1k1m.png" alt="Teğetlere yarıçap çizimi">
+                        <p><em>Yardımcı Çizgiler: OA ve OB yarıçaplarını çizin. Yarıçap teğete değme noktasında diktir (∠PAO = 90°, ∠PBO = 90°). PAOB dörtgeninin iç açılar toplamından ∠AOB bulunur.</em></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tip-section" id="tip3">
+            <div class="tip-header">
+                <h2>3. Üçgenleri Arayın</h2>
+                <button class="toggle-btn" data-target="tip3-interactive-wrapper">GÖSTER</button>
+            </div>
+            <p class="tip-main-description">Çember sorularının çoğu içinde gizlenmiş özel üçgenler (dik, ikizkenar, eşkenar) veya benzer üçgenler barındırır. Bunları fark etmeye çalışın.</p>
+            <div class="tip-content-wrapper" id="tip3-interactive-wrapper">
+                <div class="interactive-area">
+                    <p>Aşağıdaki çember parçasında hangi tür üçgenler görüyorsunuz?</p>
+                    <img src="https://i.imgur.com/V8bQp0N.png" alt="Çemberde üçgenler" style="max-width: 250px; display: block; margin: 10px auto;">
+                    <div id="ucgenTurleri">
+                        <button class="ucgen-btn" data-ucgen="dik">Dik Üçgen?</button>
+                        <button class="ucgen-btn" data-ucgen="ikizkenar">İkizkenar Üçgen?</button>
+                        <button class="ucgen-btn" data-ucgen="benzer">Benzer Üçgenler?</button>
+                    </div>
+                    <p id="ucgenCevap" class="feedback"></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="tip-section" id="tip4">
+            <div class="tip-header">
+                <h2>4. Temel Özellikleri Kullanın</h2>
+                <button class="toggle-btn" data-target="tip4-interactive-wrapper">GÖSTER</button>
+            </div>
+            <p class="tip-main-description">"Yarıçap teğete değme noktasında diktir", "Merkezden kirişe inilen dikme kirişi ortalar", "Aynı yayı gören çevre açılar eşittir" gibi temel bilgileri sürekli aklınızda tutun.</p>
+            <div class="tip-content-wrapper" id="tip4-interactive-wrapper">
+                <div class="interactive-area">
+                    <p>Hangi temel özellik bu durumu açıklar?</p>
+                    <div class="property-quiz">
+                        <img src="https://i.imgur.com/Qf3t1xR.png" alt="Temel özellik sorgulama" style="max-width: 200px; display: block; margin: 10px auto;">
+                        <select id="temelOzellikSecimi">
+                            <option value="">Seçiniz...</option>
+                            <option value="yanlis1">Çapı gören merkez açı 180°dir.</option>
+                            <option value="dogru">Yarıçap teğete değme noktasında diktir.</option>
+                            <option value="yanlis2">Eşit kirişler eşit yaylar ayırır.</option>
+                        </select>
+                        <button id="ozellikKontrolBtn">Kontrol Et</button>
+                        <p id="ozellikCevap" class="feedback"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tip-section" id="tip5">
+            <div class="tip-header">
+                <h2>5. "Neden?" Diye Sorun</h2>
+                <button class="toggle-btn" data-target="tip5-interactive-wrapper">GÖSTER</button>
+            </div>
+            <p class="tip-main-description">Bir kuralı veya formülü gördüğünüzde, bunun nereden geldiğini, hangi temel prensiplere dayandığını anlamaya çalışın. Bu, ezberlemenizi engeller ve daha derin bir kavrayış sağlar.</p>
+            <div class="tip-content-wrapper" id="tip5-interactive-wrapper">
+                <div class="interactive-area">
+                    <p><strong>Soru:</strong> Çevre açı neden gördüğü yayın yarısıdır?</p>
+                    <button id="nedenBtn">Basit Bir Açıklama Gör</button>
+                    <div id="nedenAlani" class="hidden">
+                        <p><em>En basit durum: Çevre açının bir kenarı merkezden geçiyorsa. Merkezden açının köşesine ve yayın diğer ucuna yarıçaplar çizin. İki ikizkenar üçgen oluşur. Dış açı kuralı (bir dış açı, kendisine komşu olmayan iki iç açının toplamıdır) ve ikizkenar üçgen özellikleriyle merkez açının 2α, çevre açının α olduğu gösterilebilir. Merkez açı da yaya eşit olduğundan, çevre açı yayın yarısı olur.</em></p>
+                        <img src="https://i.imgur.com/eUj7f8L.png" alt="Çevre açı ispatı için görsel" style="max-width:250px;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tip-section" id="tip6">
+            <div class="tip-header">
+                <h2>6. Bol Soru Çözün</h2>
+                <button class="toggle-btn" data-target="tip6-interactive-wrapper">GÖSTER</button>
+            </div>
+            <p class="tip-main-description">Farklı tiplerde sorular çözmek, öğrendiklerinizi pekiştirmenize ve farklı durumlarla nasıl başa çıkacağınızı öğrenmenize yardımcı olur.</p>
+            <div class="tip-content-wrapper" id="tip6-interactive-wrapper">
+                <div class="interactive-area">
+                    <p>Bugün kaç çember sorusu çözdün?</p>
+                    <input type="number" id="soruSayisi" min="0" value="0">
+                    <p id="soruMotivasyon"></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="tip-section" id="tip7">
+            <div class="tip-header">
+                <h2>7. Bağlantı Kurun</h2>
+                <button class="toggle-btn" data-target="tip7-interactive-wrapper">GÖSTER</button>
+            </div>
+            <p class="tip-main-description">Çemberdeki açıların yaylarla, uzunlukların Pisagor veya benzerlikle, analitik denklemlerin uzaklık formülüyle nasıl ilişkili olduğunu görün.</p>
+            <div class="tip-content-wrapper" id="tip7-interactive-wrapper">
+                <div class="interactive-area">
+                    <p><strong>Örnek Bağlantı:</strong> Çemberin standart denklemi (x-a)² + (y-b)² = r²</p>
+                    <p>Bu denklem aslında hangi temel geometrik kavramdan gelir?</p>
+                    <button id="baglantiBtn">Cevabı Göster</button>
+                    <p id="baglantiCevap" class="hidden feedback"><em>İki nokta arası uzaklık formülünden! Çember üzerindeki her (x,y) noktasının merkez (a,b) noktasına olan uzaklığı daima yarıçap (r) kadardır. Uzaklık formülünün karesi alındığında çember denklemi elde edilir.</em></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Unutma, çember konusu ilk başta karmaşık gelebilir ama temel mantığını ve özellikle üçgenlerle olan ilişkisini kavradığında yapbozun parçaları yerine oturacaktır. Sabırlı ol, bol pratik yap ve her zaman "neden" diye sormaktan çekinme! Başarılar dilerim!</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

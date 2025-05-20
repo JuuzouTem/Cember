@@ -1,0 +1,346 @@
+/* --- TEMEL AYARLAR VE DEĞİŞKENLER --- */
+:root {
+    --font-ana: 'Poppins', sans-serif;
+    --renk-arkaplan: #1a1a2e; /* Koyu gece mavisi */
+    --renk-arkaplan-gradient: linear-gradient(135deg, #16222A 0%, #3A6073 100%);
+    --renk-yazi: #e0e0e0; /* Açık gri */
+    --renk-vurgu1: #00f2fe; /* Canlı Turkuaz/Neon Mavi */
+    --renk-vurgu2: #ff00e6; /* Canlı Pembe/Neon Fuşya */
+    --renk-vurgu3: #7eff00; /* Canlı Yeşil/Neon Yeşil */
+    --renk-kutu-arkaplan: rgba(42, 42, 72, 0.8); /* Yarı saydam morumsu */
+    --golge-neon: 0 0 5px var(--renk-vurgu1), 0 0 10px var(--renk-vurgu1), 0 0 15px var(--renk-vurgu2), 0 0 20px var(--renk-vurgu2);
+    --golge-kutu: 0 10px 30px rgba(0,0,0,0.4);
+    --kenar-yumusaklik: 15px;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-ana);
+    line-height: 1.7;
+    background: var(--renk-arkaplan-gradient);
+    color: var(--renk-yazi);
+    overflow-x: hidden; /* Yatay kaydırmayı engelle */
+    padding-top: 20px; /* Header'ın üstünde boşluk */
+}
+
+/* --- KAYDIRMA ÇUBUĞU STİLİ (Opsiyonel, tarayıcıya göre değişir) --- */
+body::-webkit-scrollbar {
+    width: 10px;
+}
+body::-webkit-scrollbar-track {
+    background: var(--renk-arkaplan);
+}
+body::-webkit-scrollbar-thumb {
+    background-color: var(--renk-vurgu1);
+    border-radius: 20px;
+    border: 2px solid var(--renk-arkaplan);
+}
+
+/* --- BAŞLIK (HEADER) --- */
+header {
+    text-align: center;
+    padding: 2.5rem 1rem;
+    margin-bottom: 3rem;
+    background: rgba(0,0,0,0.2);
+    border-bottom: 3px solid var(--renk-vurgu1);
+    box-shadow: 0 5px 15px rgba(0, 242, 254, 0.2);
+}
+
+header h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 0 10px var(--renk-vurgu1), 0 0 20px var(--renk-vurgu1), 0 0 30px var(--renk-vurgu2);
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+    animation: pulseH1 3s infinite alternate;
+}
+
+@keyframes pulseH1 {
+    from { text-shadow: 0 0 5px var(--renk-vurgu1), 0 0 10px var(--renk-vurgu2); }
+    to { text-shadow: 0 0 20px var(--renk-vurgu1), 0 0 30px var(--renk-vurgu2), 0 0 40px var(--renk-vurgu1); }
+}
+
+header p {
+    font-size: 1.3rem;
+    color: var(--renk-yazi);
+    opacity: 0.9;
+}
+
+/* --- ANA İÇERİK (MAIN) --- */
+main {
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- İPUCU BÖLÜMLERİ (TIP SECTION) --- */
+.tip-section {
+    background: var(--renk-kutu-arkaplan);
+    margin-bottom: 40px;
+    border-radius: var(--kenar-yumusaklik);
+    box-shadow: var(--golge-kutu);
+    border: 2px solid transparent;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border-color 0.3s ease-out;
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+    animation: fadeInSlideUp 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+.tip-section:nth-child(odd) { animation-delay: 0.1s; }
+.tip-section:nth-child(even) { animation-delay: 0.2s; }
+
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.tip-section:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5), var(--golge-neon);
+    border-color: var(--renk-vurgu1);
+}
+
+.tip-header {
+    background: rgba(255,255,255,0.05);
+    padding: 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.tip-header:hover { background: rgba(255,255,255,0.1); }
+
+.tip-header h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.toggle-btn {
+    background: linear-gradient(135deg, var(--renk-vurgu1) 0%, var(--renk-vurgu2) 100%);
+    color: var(--renk-arkaplan);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    box-shadow: 0 3px 10px rgba(0, 242, 254, 0.3);
+}
+
+.toggle-btn:hover {
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 242, 254, 0.5), 0 0 20px var(--renk-vurgu2);
+}
+
+/* HER ZAMAN GÖRÜNÜR ANA AÇIKLAMA PARAGRAFI */
+.tip-main-description {
+    padding: 15px 25px 20px 25px;
+    color: var(--renk-yazi);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 0.95;
+}
+
+/* AÇILIR-KAPANIR İNTERAKTİF İÇERİK WRAPPER'I */
+.tip-content-wrapper {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transform: scaleY(0.98) translateY(-10px);
+    transform-origin: top;
+    transition: max-height 0.45s cubic-bezier(0.23, 1, 0.32, 1),
+                opacity 0.35s ease-out 0.1s,
+                transform 0.45s cubic-bezier(0.23, 1, 0.32, 1),
+                padding-top 0.45s cubic-bezier(0.23, 1, 0.32, 1),
+                padding-bottom 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.tip-content-wrapper.open {
+    max-height: 1000px; /* İçeriğe göre yeterince büyük bir değer */
+    opacity: 1;
+    transform: scaleY(1) translateY(0);
+    padding-top: 15px;
+    padding-bottom: 25px;
+}
+
+.hidden {
+    display: none !important; /* Önceliği yüksek olsun */
+}
+
+.interactive-area {
+    margin-top: 0;
+    padding: 0 25px;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    animation: interactiveContentFadeIn 0.5s ease-out 0.2s forwards;
+    opacity: 0;
+}
+
+@keyframes interactiveContentFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.interactive-area img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+.interactive-area img:hover {
+    transform: scale(1.03);
+    filter: brightness(1.1) drop-shadow(0 0 10px var(--renk-vurgu3));
+}
+
+.interactive-area button, 
+.interactive-area select,
+.interactive-area input[type="number"] {
+    margin-top: 15px;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, var(--renk-vurgu3) 0%, var(--renk-vurgu1) 100%);
+    color: var(--renk-arkaplan);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(126, 255, 0, 0.3);
+}
+
+.interactive-area input[type="number"]{
+    width: 80px;
+    text-align: center;
+}
+
+.interactive-area button:hover,
+.interactive-area select:hover,
+.interactive-area input[type="number"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(126, 255, 0, 0.5), 0 0 15px var(--renk-vurgu1);
+    filter: brightness(1.1);
+}
+.interactive-area button:active {
+    transform: translateY(0px) scale(0.98);
+}
+
+.feedback {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-align: center;
+}
+.feedback.success {
+    background-color: rgba(126, 255, 0, 0.2);
+    color: var(--renk-vurgu3);
+    border: 1px solid var(--renk-vurgu3);
+    text-shadow: 0 0 5px var(--renk-vurgu3);
+}
+.feedback.error {
+    background-color: rgba(255, 0, 100, 0.2);
+    color: #ff4d8d;
+    border: 1px solid #ff4d8d;
+    text-shadow: 0 0 5px #ff4d8d;
+}
+
+#ucgenTurleri button {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 3rem;
+    background: rgba(0,0,0,0.3);
+    color: var(--renk-yazi);
+    font-size: 0.95rem;
+    border-top: 2px solid var(--renk-vurgu2);
+    box-shadow: 0 -5px 15px rgba(255, 0, 230, 0.2);
+}
+
+/* --- RESPONSIVE AYARLAMALAR --- */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.8rem;
+    }
+    header p {
+        font-size: 1.1rem;
+    }
+    .tip-header h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2.2rem;
+    }
+    .tip-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .toggle-btn {
+        margin-top: 15px;
+        align-self: flex-end;
+    }
+    .tip-main-description {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .tip-content-wrapper.open {
+        padding-top: 10px;
+        padding-bottom: 20px;
+    }
+    .interactive-area {
+        padding: 0 20px;
+    }
+    .interactive-area button, 
+    .interactive-area select,
+    .interactive-area input[type="number"] {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    #ucgenTurleri button {
+        width: calc(50% - 5px);
+    }
+     #ucgenTurleri button:nth-child(2n){
+        margin-right: 0;
+    }
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çemberin Temel Elemanları</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Bölüm 1: Çemberin Temel Elemanları ve Tanımlar</h1>
+
+    <div class="container">
+        <div class="controls">
+            <h2>Kontroller</h2>
+            <div class="control-group">
+                <h3>1. Çember Nedir?</h3>
+                <button onclick="showElement('cember_temel')">Temel Çember</button>
+                <button onclick="showElement('yaricap')">Yarıçap (r)</button>
+                <button onclick="showElement('cap')">Çap (2r)</button>
+            </div>
+
+            <div class="control-group">
+                <h3>2. Çemberle İlgili Diğer Elemanlar</h3>
+                <button onclick="showElement('kiris')">Kiriş</button>
+                <label for="kirisY">Kiriş Y Konumu (-100 ile 100):</label>
+                <input type="range" id="kirisY" min="-95" max="95" value="0" oninput="drawCurrentElement()">
+
+                <button onclick="showElement('yay')">Yay</button>
+                <p class="note">(Yay, kiriş ile birlikte gösterilir)</p>
+
+                <button onclick="showElement('kesen')">Kesen</button>
+                <label for="kesenY">Kesen Y Konumu (-150 ile 150):</label>
+                <input type="range" id="kesenY" min="-145" max="145" value="30" oninput="drawCurrentElement()">
+                
+                <button onclick="showElement('teget')">Teğet</button>
+                <label for="tegetAci">Teğet Açısı (0-360°):</label>
+                <input type="range" id="tegetAci" min="0" max="360" value="45" oninput="drawCurrentElement()">
+                <button onclick="showElement('normal')">Normal</button>
+                 <p class="note">(Normal, teğet ile birlikte gösterilir)</p>
+
+                <button onclick="showElement('cember_parcasi')">Çember Parçası (Daire Kesmesi)</button>
+                <p class="note">(Kiriş ile birlikte gösterilir)</p>
+
+                <button onclick="showElement('daire_dilimi')">Daire Dilimi (Sektör)</button>
+                <label for="sektorAci1">Sektör Başlangıç Açısı (0-360°):</label>
+                <input type="range" id="sektorAci1" min="0" max="360" value="0" oninput="drawCurrentElement()">
+                <label for="sektorAci2">Sektör Bitiş Açısı (0-360°):</label>
+                <input type="range" id="sektorAci2" min="0" max="360" value="90" oninput="drawCurrentElement()">
+            </div>
+             <button onclick="resetCanvas()">Temizle</button>
+        </div>
+
+        <div class="canvas-container">
+            <canvas id="circleCanvas" width="400" height="400"></canvas>
+            <div id="infoBox">
+                <h3 id="elementTitle">Bilgi</h3>
+                <p id="elementDescription">Göstermek istediğiniz bir eleman seçin.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

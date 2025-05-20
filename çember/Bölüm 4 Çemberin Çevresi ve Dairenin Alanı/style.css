@@ -1,0 +1,110 @@
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 700px;
+    margin: auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+    color: #0056b3; /* Mavi tonu */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2 {
+    border-bottom: 2px solid #0056b3;
+    padding-bottom: 5px;
+    margin-top: 30px;
+}
+
+.info-text {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 20px;
+    background-color: #e7f3fe;
+    padding: 10px;
+    border-left: 4px solid #2196F3;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-group input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* Önemli: padding ve border width'i etkilemesin */
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745; /* Yeşil tonu */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.results-area {
+    margin-top: 30px;
+}
+
+.result-item {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+.result-item h3 {
+    margin-top: 0;
+    color: #17a2b8; /* Turkuaz tonu */
+}
+
+.result-item p {
+    margin: 5px 0;
+}
+
+.result-item span {
+    font-weight: bold;
+    color: #d9534f; /* Kırmızı tonu */
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #ddd;
+    margin: 10px 0;
+}

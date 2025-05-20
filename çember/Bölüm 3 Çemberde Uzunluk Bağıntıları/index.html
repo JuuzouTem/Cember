@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çemberde Uzunluk Bağıntıları</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Bölüm 3: Çemberde Uzunluk Bağıntıları</h1>
+
+        <!-- 1. Kirişin Özellikleri -->
+        <section id="chord-properties">
+            <h2>1. Kirişin Özellikleri</h2>
+            <div class="content-box">
+                <div class="explanation">
+                    <p><strong>a) Merkezden kirişe indirilen dikme:</strong> Kirişi ve kirişin gördüğü yayı iki eş parçaya böler.</p>
+                    <p><em>Neden?</em> Merkezden kirişin uçlarına yarıçaplar çizilirse bir ikizkenar üçgen oluşur. İkizkenar üçgende tepe açısından tabana inilen dikme aynı zamanda kenarortay ve açıortaydır.</p>
+                    <p><strong>b) Eşit kirişlerin merkeze uzaklıkları:</strong> Bir çemberde eşit uzunluktaki kirişlerin merkeze uzaklıkları eşittir.</p>
+                    <p><strong>c) Merkeze yakın kiriş:</strong> Merkeze yakın olan kiriş, uzak olandan daha uzundur.</p>
+                    <p><em>Neden (Pisagor)?</em> <code>r² = (kiriş/2)² + (merkeze uzaklık)²</code>. 'r' sabitken, merkeze uzaklık azalırsa, kirişin yarısı artar, dolayısıyla kiriş artar.</p>
+                </div>
+                <div class="interactive-area">
+                    <svg id="chordSvg" width="300" height="220"></svg>
+                    <div>
+                        <label for="chordDist">Merkeze Uzaklık (d):</label>
+                        <input type="range" id="chordDist" min="0" max="80" value="40">
+                        <span id="chordDistVal">40</span> (Yarıçap r=100)
+                    </div>
+                    <p>Kiriş Uzunluğu: <span id="chordLengthVal"></span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Teğetin Özellikleri -->
+        <section id="tangent-properties">
+            <h2>2. Teğetin Özellikleri</h2>
+            <div class="content-box">
+                <div class="explanation">
+                    <p><strong>a) Yarıçap ve teğet:</strong> Yarıçap, değme noktasında teğete <strong>diktir</strong>. (Çok önemli!)</p>
+                    <p><strong>b) Dış noktadan çizilen teğetler:</strong> Çembere dışındaki bir noktadan çizilen teğet parçalarının uzunlukları <strong>eşittir</strong>. <code>|PA| = |PB|</code></p>
+                    <p><em>Neden?</em> P noktasını merkezle (O) birleştirin. PAO ve PBO dik üçgenleri oluşur. Bu üçgenler eştir (Hipotenüsleri ortak |PO|, birer dik kenarları yarıçap |OA|=|OB|=r). Dolayısıyla diğer dik kenarlar |PA|=|PB| olur.</p>
+                    <p>Ayrıca, PO doğrusu ∠APB açısının (dış açı) ve ∠AOB açısının (merkez açı) açıortayıdır.</p>
+                </div>
+                <div class="interactive-area">
+                    <svg id="tangentSvg" width="350" height="250"></svg>
+                     <p>|PA| = <span id="paLength"></span>, |PB| = <span id="pbLength"></span></p>
+                     <p>∠OPA = <span id="angleOPA"></span>°, ∠OPB = <span id="angleOPB"></span>°</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Kuvvet Bağıntıları -->
+        <section id="power-of-point">
+            <h2>3. Kuvvet Bağıntıları (Bir Noktanın Çembere Göre Kuvveti)</h2>
+            <div class="content-box">
+                <div class="explanation">
+                    <p><strong>a) İç Kuvvet:</strong> Çemberin içinde kesişen iki kiriş (AB ve CD, kesişim noktası P) için:
+                        <code>|PA| * |PB| = |PC| * |PD|</code></p>
+                    <p><strong>b) Dış Kuvvet:</strong> Çemberin dışındaki bir P noktasından çizilen iki kesen (PAB ve PCD) için:
+                        <code>|PA| * |PB| = |PC| * |PD|</code> (P'den çemberi ilk kestiği nokta ile ikinci kestiği noktaya olan uzaklıkların çarpımı)</p>
+                    <p><strong>c) Teğet-Kesen Kuvveti:</strong> P noktasından bir teğet (PT) ve bir kesen (PAB) çizilirse:
+                        <code>|PT|² = |PA| * |PB|</code></p>
+                </div>
+                <div class="interactive-area">
+                    <svg id="powerSvg" width="400" height="300"></svg>
+                    <div>
+                        <label for="powerType">Kuvvet Türü:</label>
+                        <select id="powerType">
+                            <option value="internal">İç Kuvvet</option>
+                            <option value="external_secants">Dış Kuvvet (İki Kesen)</option>
+                            <option value="external_tangent_secant">Dış Kuvvet (Teğet-Kesen)</option>
+                        </select>
+                    </div>
+                    <div id="powerInputs">
+                        <!-- Inputs will be dynamically added here -->
+                    </div>
+                    <p id="powerResult"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. İki Çemberin Birbirine Göre Durumları -->
+        <section id="two-circles">
+            <h2>4. İki Çemberin Birbirine Göre Durumları</h2>
+            <div class="content-box">
+                <div class="explanation">
+                    <p>Merkezleri M₁ ve M₂, yarıçapları r₁ ve r₂ olan iki çemberin durumları, merkezler arası uzaklık |M₁M₂| (d) ile yarıçaplar toplamı (r₁ + r₂) ve farkı |r₁ - r₂| karşılaştırılarak belirlenir.</p>
+                    <ul>
+                        <li><strong>Dıştan Ayrık:</strong> d > r₁ + r₂</li>
+                        <li><strong>Dıştan Teğet:</strong> d = r₁ + r₂</li>
+                        <li><strong>Kesişen:</strong> |r₁ - r₂| < d < r₁ + r₂</li>
+                        <li><strong>İçten Teğet:</strong> d = |r₁ - r₂| (ve d ≠ 0)</li>
+                        <li><strong>İçten Ayrık:</strong> d < |r₁ - r₂| (küçük çember büyüğün içinde, değmiyorlar)</li>
+                        <li><strong>Eş Merkezli:</strong> d = 0 (r₁ ≠ r₂ ise iç içe, r₁ = r₂ ise çakışık)</li>
+                    </ul>
+                </div>
+                <div class="interactive-area">
+                    <svg id="twoCirclesSvg" width="450" height="250"></svg>
+                    <div>
+                        <label for="r1">r₁:</label> <input type="range" id="r1" min="10" max="80" value="50"> <span id="r1Val">50</span>
+                    </div>
+                    <div>
+                        <label for="r2">r₂:</label> <input type="range" id="r2" min="10" max="80" value="30"> <span id="r2Val">30</span>
+                    </div>
+                    <div>
+                        <label for="distCenters">d (|M₁M₂|):</label> <input type="range" id="distCenters" min="0" max="200" value="100"> <span id="distCentersVal">100</span>
+                    </div>
+                    <p>Durum: <strong id="twoCirclesStatus"></strong></p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

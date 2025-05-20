@@ -1,0 +1,90 @@
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.controls {
+    flex: 1;
+}
+
+.controls h2, .controls h3 {
+    color: #0056b3;
+}
+
+.control-group {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.control-group label {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+.control-group input[type="range"] {
+    width: 90%;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px 2px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.canvas-container {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#circleCanvas {
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+#infoBox {
+    margin-top: 15px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    background-color: #e9f5ff;
+    border-radius: 5px;
+    width: 90%;
+    text-align: left;
+}
+
+#infoBox h3 {
+    margin-top: 0;
+    color: #0056b3;
+}
+
+.note {
+    font-size: 0.8em;
+    color: #555;
+    margin-top: 0;
+}

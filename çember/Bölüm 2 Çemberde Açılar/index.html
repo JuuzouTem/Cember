@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çemberde Açılar - İnteraktif</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Bölüm 2: Çemberde Açılar</h1>
+    <p>Aşağıdaki interaktif araçlarla çemberdeki farklı açı türlerini ve özelliklerini keşfedin.</p>
+
+    <div class="angle-container">
+        <h2>1. Merkez Açı</h2>
+        <p>Köşesi çemberin merkezinde olan açıdır. Ölçüsü, gördüğü yayın ölçüsüne <strong>eşittir</strong>.</p>
+        <p>Formül: <code>Merkez Açı = Gördüğü Yay</code></p>
+        <canvas id="centralAngleCanvas" width="300" height="250"></canvas>
+        <div>
+            <label for="centralAngleSlider">Yay / Açı Derecesi (0-360°): </label>
+            <input type="range" id="centralAngleSlider" min="0" max="360" value="90">
+            <span id="centralAngleValue">90°</span>
+        </div>
+        <p>Merkez Açı: <strong id="centralAngleResult">90°</strong>, Gördüğü Yay: <strong id="centralArcResult">90°</strong></p>
+    </div>
+
+    <div class="angle-container">
+        <h2>2. Çevre Açı</h2>
+        <p>Köşesi çember üzerinde olan ve kenarları çemberin kirişleri olan açıdır. Ölçüsü, gördüğü yayın ölçüsünün <strong>yarısına</strong> eşittir.</p>
+        <p>Formül: <code>Çevre Açı = Gördüğü Yay / 2</code></p>
+        <canvas id="inscribedAngleCanvas" width="300" height="250"></canvas>
+        <div>
+            <label for="inscribedArcSlider">Gördüğü Yay Derecesi (0-360°): </label>
+            <input type="range" id="inscribedArcSlider" min="0" max="360" value="120">
+            <span id="inscribedArcValue">120°</span>
+        </div>
+         <p>Çevre Açı: <strong id="inscribedAngleResult">60°</strong>, Gördüğü Yay: <strong id="inscribedArcResult2">120°</strong></p>
+         <p class="note">Not: Çevre açının tepe noktasının konumu değişse de, aynı yayı gördüğü sürece ölçüsü değişmez.</p>
+    </div>
+
+    <div class="angle-container">
+        <h2>3. Teğet-Kiriş Açı</h2>
+        <p>Köşesi çember üzerinde, bir kenarı çembere teğet, diğer kenarı çemberin bir kirişi olan açıdır. Ölçüsü, gördüğü yayın ölçüsünün <strong>yarısına</strong> eşittir.</p>
+        <p>Formül: <code>Teğet-Kiriş Açı = Gördüğü Yay / 2</code></p>
+        <canvas id="tangentChordAngleCanvas" width="300" height="250"></canvas>
+        <div>
+            <label for="tangentChordArcSlider">Gördüğü Yay Derecesi (0-360°): </label>
+            <input type="range" id="tangentChordArcSlider" min="0" max="360" value="150">
+            <span id="tangentChordArcValue">150°</span>
+        </div>
+        <p>Teğet-Kiriş Açı: <strong id="tangentChordAngleResult">75°</strong>, Gördüğü Yay: <strong id="tangentChordArcResult2">150°</strong></p>
+    </div>
+
+    <div class="angle-container">
+        <h2>4. İç Açı</h2>
+        <p>Çemberin içinde kesişen iki kirişin oluşturduğu açıdır. Ölçüsü, gördüğü yaylar ile ters açısının gördüğü yayın ölçüleri toplamının <strong>yarısına</strong> eşittir.</p>
+        <p>Formül: <code>İç Açı = (Yay1 + Yay2) / 2</code></p>
+        <canvas id="interiorAngleCanvas" width="300" height="280"></canvas>
+        <div>
+            <label for="interiorArc1Slider">Yay 1 Derecesi (0-180°): </label>
+            <input type="range" id="interiorArc1Slider" min="0" max="180" value="60">
+            <span id="interiorArc1Value">60°</span>
+        </div>
+        <div>
+            <label for="interiorArc2Slider">Yay 2 Derecesi (0-180°): </label>
+            <input type="range" id="interiorArc2Slider" min="0" max="180" value="80">
+            <span id="interiorArc2Value">80°</span>
+        </div>
+        <p>İç Açı: <strong id="interiorAngleResult">70°</strong> (Yaylar: <span id="interiorArc1Result">60°</span>, <span id="interiorArc2Result">80°</span>)</p>
+    </div>
+
+     <div class="angle-container">
+        <h2>5. Dış Açı</h2>
+        <p>Köşesi çemberin dışında olan ve kenarları çembere teğet veya kesen olan açıdır. Ölçüsü, gördüğü büyük yay ile küçük yayın ölçüleri farkının <strong>yarısına</strong> eşittir.</p>
+        <p>Formül (İki Kesen): <code>Dış Açı = (Büyük Yay - Küçük Yay) / 2</code></p>
+        <p>Formül (İki Teğet): <code>Dış Açı = (Büyük Yay - Küçük Yay) / 2</code> veya <code>Dış Açı + Küçük Yay = 180°</code></p>
+        <canvas id="exteriorAngleCanvas" width="350" height="300"></canvas>
+        <div>
+            <label for="exteriorAngleType">Açı Tipi: </label>
+            <select id="exteriorAngleType">
+                <option value="secants">İki Kesen</option>
+                <option value="tangents">İki Teğet</option>
+                <option value="tangent_secant">Bir Teğet, Bir Kesen</option>
+            </select>
+        </div>
+        <div id="secantControls">
+            <label for="exteriorFarArcSlider">Uzak Yay (Büyük) (0-360°): </label>
+            <input type="range" id="exteriorFarArcSlider" min="0" max="360" value="160">
+            <span id="exteriorFarArcValue">160°</span>
+            <br>
+            <label for="exteriorNearArcSlider">Yakın Yay (Küçük) (0-150°): </label>
+            <input type="range" id="exteriorNearArcSlider" min="0" max="150" value="40">
+            <span id="exteriorNearArcValue">40°</span>
+        </div>
+         <div id="tangentControls" style="display:none;">
+            <label for="exteriorMinorArcSlider">Küçük Yay (Teğetler Arası) (0-359°): </label>
+            <input type="range" id="exteriorMinorArcSlider" min="1" max="359" value="120">
+            <span id="exteriorMinorArcValue">120°</span>
+        </div>
+        <p>Dış Açı: <strong id="exteriorAngleResult">60°</strong></p>
+        <p id="exteriorAngleExtraInfo"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

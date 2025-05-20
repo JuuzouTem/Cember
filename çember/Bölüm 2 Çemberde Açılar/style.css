@@ -1,0 +1,67 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+h1, h2 {
+    color: #0056b3;
+    border-bottom: 2px solid #0056b3;
+    padding-bottom: 5px;
+}
+
+.angle-container {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+canvas {
+    border: 1px solid #ccc;
+    display: block;
+    margin: 15px auto; /* Canvas'ı ortalamak için */
+    background-color: #eef;
+}
+
+label {
+    display: inline-block; /* Slider ve değeri yan yana getirmek için */
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+input[type="range"] {
+    vertical-align: middle; /* Slider'ı label ile hizalamak için */
+    width: 150px;
+}
+
+span {
+    font-weight: bold;
+    color: #d9534f;
+}
+
+strong {
+    color: #5cb85c;
+}
+
+code {
+    background-color: #eee;
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+.note {
+    font-size: 0.9em;
+    color: #777;
+    font-style: italic;
+}
+
+select {
+    padding: 5px;
+    margin-bottom: 10px;
+}

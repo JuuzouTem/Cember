@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çember Hesaplamaları</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Bölüm 4: Çemberin Çevresi ve Dairenin Alanı</h1>
+        <p class="info-text">
+            Bu bölümde çemberin temel ölçülerini hesaplayacağız. Lütfen aşağıdaki değerleri girin.
+            π (Pi) değeri yaklaşık olarak 3.14 alınacaktır.
+        </p>
+
+        <div class="input-group">
+            <label for="radius">Yarıçap (r):</label>
+            <input type="number" id="radius" placeholder="Örn: 5" min="0" step="any">
+        </div>
+
+        <div class="input-group">
+            <label for="angle">Merkez Açı (α - Derece):</label>
+            <input type="number" id="angle" placeholder="Örn: 90" min="0" max="360" step="any">
+        </div>
+
+        <button id="calculateButton">Tümünü Hesapla</button>
+
+        <div class="results-area">
+            <h2>Sonuçlar:</h2>
+
+            <div class="result-item">
+                <h3>1. Çemberin Çevresi (Ç)</h3>
+                <p>Formül: Ç = 2 * π * r</p>
+                <p>Çevre: <span id="circumferenceResult">-</span></p>
+            </div>
+
+            <div class="result-item">
+                <h3>2. Dairenin Alanı (A)</h3>
+                <p>Formül: A = π * r²</p>
+                <p>Alan: <span id="areaResult">-</span></p>
+            </div>
+
+            <div class="result-item">
+                <h3>3. Yay Uzunluğu (L)</h3>
+                <p>Formül: L = (α / 360) * 2 * π * r</p>
+                <p>Yay Uzunluğu: <span id="arcLengthResult">-</span></p>
+            </div>
+
+            <div class="result-item">
+                <h3>4. Daire Diliminin Alanı (A<sub>dilim</sub>)</h3>
+                <p>Formül (Açı ile): A<sub>dilim</sub> = (α / 360) * π * r²</p>
+                <p>Alan (Açı ile): <span id="sectorAreaAngleResult">-</span></p>
+                <hr>
+                <p>Formül (Yay Uzunluğu ile): A<sub>dilim</sub> = (L * r) / 2</p>
+                <p>Alan (Yay Uzunluğu ile): <span id="sectorAreaArcLengthResult">-</span> (Yukarıdaki hesaplanan yay uzunluğu kullanılır)</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
